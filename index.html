@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upashak Gayen - AI/ML Engineer Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+
+        /* About */
+        .about-text {
+            font-size: 1.1rem;
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .project-link {
+            background: #667eea;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #5a67d8;
+        }
+
+        /* Experience */
+        .experience-item {
+            border-left: 3px solid #667eea;
+            padding-left: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+
+        .experience-item h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-item h5 {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .date {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-item p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Education */
+        .education-item {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .education-item h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .education-item p {
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .education-item .date {
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="profile-img">UG</div>
+            <h1>Upashak Gayen</h1>
+            <h2>AI/ML Engineer & Full-Stack Developer</h2>
+            
+            <div class="contact-info">
+                <a href="mailto:upashak1817@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    upashak1817@gmail.com
+                </a>
+                <a href="https://github.com/Upashak653" class="contact-item" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="tel:+9193307146372" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    +91 93307146372
+                </a>
+                <span class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Kolkata, West Bengal
+                </span>
+            </div>
+            
+            <a href="Purple and White Clean and Professional Resume.pdf" class="download-btn" download>
+                <i class="fas fa-download"></i>
+                Download CV
+            </a>
+        </header>
+
+        <!-- About -->
+        <section class="section">
+            <h3><i class="fas fa-user section-icon"></i>About Me</h3>
+            <p class="about-text">
+                I am a passionate AI/ML Engineer with expertise in solving real-world problems using Agentic AI, MCP, machine learning, deep learning, and NLP. 
+                I have extensive experience with GenAI, RAG pipelines, and recommendation systems. Currently pursuing my Bachelor's in Computer Science and Engineering 
+                at Government College of Engineering and Leather Technology, I am seeking a full-time role to build impactful, intelligent systems that make a difference.
+            </p>
+        </section>
+
+        <!-- Skills -->
+        <section class="section">
+            <h3><i class="fas fa-code section-icon"></i>Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Programming Languages</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">Python</li>
+                        <li class="skill-item">JavaScript</li>
+                        <li class="skill-item">C</li>
+                        <li class="skill-item">HTML</li>
+                        <li class="skill-item">CSS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>AI/ML & Data Science</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">TensorFlow</li>
+                        <li class="skill-item">Keras</li>
+                        <li class="skill-item">Scikit-learn</li>
+                        <li class="skill-item">Pandas</li>
+                        <li class="skill-item">NumPy</li>
+                        <li class="skill-item">Matplotlib</li>
+                        <li class="skill-item">Seaborn</li>
+                        <li class="skill-item">NLTK</li>
+                        <li class="skill-item">WordCloud</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Frameworks & Libraries</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">React.js</li>
+                        <li class="skill-item">Next.js</li>
+                        <li class="skill-item">Express.js</li>
+                        <li class="skill-item">Node.js</li>
+                        <li class="skill-item">Django</li>
+                        <li class="skill-item">Bootstrap</li>
+                        <li class="skill-item">Tailwind CSS</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Databases & Tools</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">MongoDB</li>
+                        <li class="skill-item">MySQL</li>
+                        <li class="skill-item">Git</li>
+                        <li class="skill-item">GitHub</li>
+                        <li class="skill-item">VS Code</li>
+                        <li class="skill-item">Cursor IDE</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul class="skill-list">
+                        <li class="skill-item">Teamwork</li>
+                        <li class="skill-item">Leadership</li>
+                        <li class="skill-item">Planning</li>
+                        <li class="skill-item">Communication</li>
+                        <li class="skill-item">Problem Solving</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section">
+            <h3><i class="fas fa-project-diagram section-icon"></i>Projects</h3>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h4>Autonomous Web Agent for Real-Time Research</h4>
+                    <p>Developed an intelligent agent using browser automation and LLM to browse the web, extract data, and generate contextual summaries for real-time research.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/Autonomous_Web_Agent_and_Real_Time_Research" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Vector DB and GenAI Integration</h4>
+                    <p>Built a comprehensive vector database system integrated with GenAI for similarity search using Pinecone, enabling efficient information retrieval.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/vectorDB_GenAI" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Agentic AI Stock Recommendation System</h4>
+                    <p>Developed an AI-based stock recommendation system using CrewAI with four specialized agents for market analysis and company insights.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/Agentic_AI" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>RAG Using Haystack</h4>
+                    <p>Implemented Retrieval-Augmented Generation (RAG) system using Haystack framework for enhanced question-answering capabilities.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/RAG_Using_Haystack" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>AI Creator - GenAI SaaS Platform</h4>
+                    <p>A full-stack GenAI-powered SaaS platform for content and code generation using Gemini API, built with Next.js, Express.js, and Tailwind CSS.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/ai-content-generator" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Netflix Data Analysis & Sentiment Analysis</h4>
+                    <p>Comprehensive analysis of Netflix data with sentiment analysis to understand user preferences and content trends.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/NetFlix_Data_Analysis_and_Sentiment_Analysis" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Music Recommendation System</h4>
+                    <p>Developed an intelligent music recommendation system using machine learning algorithms to suggest personalized music based on user preferences.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/Music_recommendation_system" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Mental Health Chatbot (Deep Learning)</h4>
+                    <p>Built an AI-powered mental health chatbot using deep learning techniques to provide support and guidance to users.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/Mental_health_chatbot" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h4>Crypto Currency Tracker</h4>
+                    <p>A full-stack cryptocurrency tracking application built with React.js, Express.js, Node.js, and Tailwind CSS for real-time crypto monitoring.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Upashak653/crypto_stalker" class="project-link" target="_blank">
+                            <i class="fab fa-github"></i> View Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section">
+            <h3><i class="fas fa-briefcase section-icon"></i>Experience</h3>
+            
+            <div class="experience-item">
+                <h4>AI/ML Intern</h4>
+                <h5>InternSELITE</h5>
+                <div class="date">January 2025 - March 2025</div>
+                <p>Worked on machine learning models for sentiment analysis, data analysis, and recommendation systems using STOPWORDS, NLTK, SentimentIntensityAnalyzer, WordCloud, and WordNetLemmatizer.</p>
+            </div>
+
+            <div class="experience-item">
+                <h4>Full Stack Intern</h4>
+                <h5>CodeAlpha</h5>
+                <div class="date">November 2024 - December 2024</div>
+                <p>Developed full-stack web applications using MERN stack with Socket.IO. Collaborated on team projects and gained hands-on experience with modern web development technologies.</p>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h3><i class="fas fa-graduation-cap section-icon"></i>Education</h3>
+            <div class="education-item">
+                <h4>Bachelor of Computer Science and Engineering</h4>
+                <p>Government College of Engineering and Leather Technology</p>
+                <div class="date">2022 - Present</div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <h3><i class="fas fa-envelope section-icon"></i>Get In Touch</h3>
+            <form class="contact-form" action="mailto:upashak1817@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html> 
